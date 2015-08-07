@@ -1,0 +1,85 @@
+<div class="post-show" ng-show="post_show" ng-controller="PostController">
+  <div>
+
+    <div class="close_button link" ng-click="closeDialog()">X</div>
+
+    <div class="left-arrow-outer">
+      <div class="left-arrow" ng-click="previousLink()" ng-if="prev_id">
+        <!-- <span class="glyphicon glyphicon-backward"></span> -->
+        &lt;
+      </div>
+    </div>
+
+    <div class="post-outer">
+
+      <div class="photo-outer">
+        <div class="photo-holder">
+          <img ng-src="{{post.picture_file_name }}" class="post-photo" />
+        </div>
+      </div>
+
+      <div class="info-outer">
+
+        <div class="post-info">
+          <span class="post-title">{{ post.title }}</span><br>
+          <span class="post-date">{{ post.created_at }}</span><br>
+          <span class="post-text">{{ post.text }}</span>
+        </div>
+
+        <div class="comments-box">
+          <div ng-repeat="comment in comments">
+
+            <div class="comment-box">
+              <span class="comment-date">{{ comment.created_at }}</span>
+
+              <div class="comment-details">
+                <div class="comment-avatar"><img ng-src="{{comment.author.avatar_file_name}}" class="comment_avatar" /></div>
+
+                <div class="comment-text">
+                  <b>{{ comment.author.username }}</b>: {{ comment.text }}<br>
+                  <a href="#" alt="edit_user_post_comment_path(username, post_id, comment_id)">Edit</a>
+                  <a href="#" alt="user_post_comment_path(...) delete">Delete</a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="likes">
+          <div>
+            {{ likers }}
+          </div>
+          <br>
+          <div ng-if="my_like_id > 0">
+              <b><a href ng-click="unlikeButton()" alt="user_post_like_path(current_username, postid, my_like_id) delete">Don't like!</a></b>
+          </div>
+          <div ng-if="my_like_id == 0">
+              <a href ng-click="likeButton()" alt="user_post_likes_path(current_username, postid) post">Like!</a>
+          </div>
+        </div>
+
+        <div class="comment-outer">
+          <div class="comment-avatar"><img ng-src="{{ current_user.avatar_file_name }}", class="comment_avatar" /></div>
+
+          <div class="input-group comment-new-box">
+            <input type="text" class="form-control comment-new-input" placeholder="Napisz komentarz!" aria-describedby="basic-addon2" ng-model="new_comment_body">
+            <span class="input-group-addon link" id="basic-addon2" ng-click="addComment()">Add a comment!</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="right-arrow-outer">
+      <div class="right-arrow" ng-click="nextLink()" ng-if="next_id">
+        <!-- <span class="glyphicon glyphicon-forward"></span> -->
+        &gt;
+      </div>
+    </div>
+
+  </div>
+</div>

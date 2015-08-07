@@ -1,0 +1,26 @@
+<div ng-include="'layouts/_top.html'"></div>
+
+<div ng-include="'posts/_user.html'"></div>
+
+<h3 id="add_photo_header">Add a foto!</h3>
+
+<p>
+  <p>Title:</p>
+  <input type="text" ng-model="title" id="title_field">
+</p>
+
+<p>
+  <p>Text:</p>
+  <textarea class="post-textarea" ng-model="text" id="text_field"></textarea>
+</p>
+
+<p>
+  <p>Picture:</p>
+  <input type="file" class="btn btn-primary" file-model="pictureFile" id="picture_field">
+</p>
+<br>
+
+<button class="btn btn-success btn-lg" ng-click="sendPhoto()">Add!</button>
+
+
+<div ng-include="'layouts/_bottom.html'"></div>

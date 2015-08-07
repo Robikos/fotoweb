@@ -1,0 +1,8 @@
+%div{:style => "height: 155px"}
+  %div{:style => "float: left"}
+    = link_to root_path do
+      %h2 FotoWeb
+    %h4 Your place to share photos
+  %div{:style => "float: right; height: 200px"}
+    = render "posts/current_user"
+%hr{:style => "width: 100%"}/

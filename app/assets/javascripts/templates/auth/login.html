@@ -1,0 +1,27 @@
+<div class="bs-callout bs-callout-danger" ng-if="error">
+  <h4>Error</h4>
+  <p>{{ error }}</p>
+</div>
+
+<h2>Log in</h2>
+
+<form ng-submit="submit()">
+  <div class="field">
+    <label for="login">Login:</label>
+    <input type="text" ng-model="user.login" autofocus="true" id="login">
+  </div>
+
+  <div class="field">
+    <label for="password">Password:</label>
+    <input type="password" ng-model="user.password" autofocus="true" id="password">
+  </div>
+
+  <div class="field">
+    <input type="checkbox" ng-model="user.remember_me">
+    <label for="remember_me">Remember me</label>
+  </div>
+
+  <div class="actions">
+    <input type="submit" value="Log in">
+  </div>
+</form>

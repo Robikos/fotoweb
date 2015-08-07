@@ -1,0 +1,29 @@
+<div ng-include="'layouts/_top.html'"></div>
+
+<div ng-include="'posts/_user.html'"></div>
+
+<div class="posts-box-outer">
+  <div class="posts-box">
+
+    <div class="post-box" ng-repeat="post in posts">
+        <a href ng-click="showLink(post.id)" id="show_modal_link">
+
+          <div class="post-image-holder">
+            <img ng-src="{{ post.picture_thumb_name }}" />
+          </div>
+
+          <div class="post-details">
+            {{ post.created_at }}<br>
+            <b>{{ post.title }}</b><br>
+            Comments: {{ post.comments_count }}
+          </div>
+
+        </a>
+    </div>
+
+  </div>
+</div>
+
+<div ng-include="'posts/show.html'"></div>
+
+<div ng-include="'layouts/_bottom.html'"></div>

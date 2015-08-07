@@ -1,0 +1,40 @@
+= render "user"
+%div
+  %div
+    = image_tag @post.picture.url
+  %br/
+  %div
+    %b= @post.title
+    %br/
+    = @post.created_at
+    %br/
+    = @post.text
+  %br/
+  %div
+    - @comments.each do |comment|
+      = comment.created_at
+      %br/
+      %div= image_tag comment.author.avatar.url, size: "50x50"
+      = succeed ":" do
+        %b= comment.author.username
+      = comment.text
+      %br/
+      = link_to "Edytuj", edit_user_post_comment_path(comment.author.username, comment.post_id, comment.id)
+      = link_to "Usuń", user_post_comment_path(comment.author.username, comment.post_id, comment.id), method: :delete
+      %hr{:style => "width: 50%"}/
+  %br/
+  .likes
+    %div
+      = @likers
+    %br/
+    %div
+      - if @my_like_id > 0
+        %b= link_to "Nie lubię tego!", user_post_like_path(current_user.username, @post.id, @my_like_id), method: :delete
+      - else
+        = link_to "Lubię to!", user_post_likes_path(current_user.username, @post.id), method: :post
+  %div
+    = form_for [current_user, @post, @new_comment] do |f|
+      %div= image_tag current_user.avatar.url, size: "50x50"
+      %div= f.text_field :text, placeholder: "Napisz komentarz!"
+      %br/
+      %div= f.submit "Dodaj komentarz!"

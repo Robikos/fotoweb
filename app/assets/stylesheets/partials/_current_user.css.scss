@@ -1,0 +1,44 @@
+.current-user-links-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 195px;
+  width: 250px;
+  float: left;
+}
+
+.current-user-links {
+  text-align: center;
+  font-size: 14pt;
+}
+
+.current-user-avatar-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  height: 195px;
+}
+
+.current-user-avatar {
+  
+}
+
+.current-user-info-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  height: 195px;
+}
+
+.current-user-info {
+  font-size: 14pt;
+  margin-left: 50px;
+}
+
+.current-user-avatar img {
+  border-radius: 25%;
+  width: 150px;
+  height: 150px;
+}

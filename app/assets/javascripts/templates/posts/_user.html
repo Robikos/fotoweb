@@ -1,0 +1,34 @@
+<div class="user-partial" ng-if="user !== null" ng-controller="UsersPartialController">
+  <div class="user-partial-inner">
+
+    <div class="user-avatar-outer">
+      <div class="user-avatar">
+        <img ng-src="{{user.avatar_file_name}}" class="user_avatar" 
+          ng-if="user.avatar_file_name !== null" />
+      </div>
+    </div>
+
+    <div class="user-info-outer">
+      <div class="user-info">
+        Username: <b>{{ user.username }}</b><br>
+        Posts: <b>{{ user.posts_count }}</b><br>
+        Registered at: <b>{{ user.created_at }}</b><br>
+        
+        <div ng-if="user.id !== current_user.id">
+          <div ng-if="!friendship">
+            <a href ng-click="addFriend()" id="add_friend_link">Add a friendship</a>
+          </div>
+          <div ng-if="friendship">
+            Friends (
+            <a href ng-click="removeFriend()" id="remove_friend_link">Remove</a>
+            )
+          </div>
+        </div>
+        <div ng-if="user.id === current_user.id"> 
+          It is you
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

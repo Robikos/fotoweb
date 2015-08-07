@@ -1,0 +1,20 @@
+<div ng-include="'layouts/_top.html'"></div>
+
+<div ng-include="'posts/_user.html'"></div>
+
+<div ng-repeat="friend in friends">
+    <a ng-href="/users/{{friend.username}}/posts">
+      <div style="float: left; margin: 10px">
+        <div>
+          <img ng-src="{{friend.avatar_file_name}}" class="user_avatar"
+            ng-if="friend.avatar_file_name !== null" />
+        </div>
+        <br>
+        <div>
+          <b>{{ friend.username }}</b>
+        </div>
+      </div>
+    </a>
+</div>
+
+<div ng-include="'layouts/_bottom.html'"></div>

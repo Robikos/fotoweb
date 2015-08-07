@@ -1,0 +1,40 @@
+<div ng-controller="CurrentUserPartialController">
+  <div ng-if="current_user !== null">
+
+    <div class="current-user-links-outer">
+      <div class="current-user-links">
+        <a href="/users/add_avatar">Change avatar!</a><br>
+        <a href ng-click="addPostLink()">Add a new post!</a><br>
+        <a href ng-click="friendshipsLink()">Friends</a>
+        <br>
+        <a href="/authentication/sign_out" data-method="delete">Log out</a>
+      </div>
+    </div>
+
+    <div class="current-user-avatar-outer">
+      <div class="current-user-avatar">
+        <a href="/users/add_avatar" ng-if="current_user.avatar_file_name === null">
+          Add avatar!</a>
+        <a href="/users" ng-if="current_user.avatar_file_name !== null">
+          <img ng-src="{{current_user.avatar_file_name}}" />
+        </a>
+      </div>
+    </div>
+
+    <div class="current-user-info-outer">
+      <div class="current-user-info">
+        Logged in as: <b>{{ current_user.username }}</b><br>
+        Posts: <b>{{ current_user.posts_count }}</b><br>
+        Registered at: <b>{{ current_user.created_at }}</b><br>
+      </div>
+    </div>
+  
+  </div>
+
+  <div ng-if="current_user === null">
+    <a href="/auth/sign_in">Log in</a> 
+    or 
+    <a href="/auth/sign_up">Register!</a>
+  </div>
+  
+</div>

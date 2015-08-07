@@ -1,0 +1,17 @@
+<div style="width: 100%">
+  <% @friendships.each do |friendship| %>
+    <%= link_to user_posts_path(friendship.friend.username) do %>
+      <div style="display: block; float: left; margin: 5px">
+        <div style="float: left">
+          <% if friendship.friend.avatar_file_name != nil %>
+            <%= image_tag(friendship.friend.avatar.url(:medium), class: "user_avatar") %>
+          <% end %>
+        </div>
+        <div style="float: right">
+          <b><%= friendship.friend.username %></b>
+        </div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+</div>

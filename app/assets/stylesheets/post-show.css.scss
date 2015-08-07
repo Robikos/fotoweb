@@ -1,0 +1,173 @@
+.post-show {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 99999;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post-show > div {
+  border-radius: 10px;
+  border-style: solid;
+  border-width: 1px;
+  position: relative;
+  /* margin: 30px 50px; */
+  margin: 30px auto;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 1295px;
+  background: -moz-linear-gradient(#fff, #999);
+  background: -webkit-linear-gradient(#fff, #999);
+  background: -o-linear-gradient(#fff, #999);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.close_button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 10px 10px 0px 0px;
+  padding: 0px 10px;
+  font-size: 30pt;
+  font-color: red;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 25%;
+}
+
+.left-arrow-outer, .right-arrow-outer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 5%;
+  font-size: 30pt;
+  float: left;
+}
+
+.left-arrow-outer:hover, .right-arrow-outer:hover {
+  cursor: pointer;
+}
+
+.photo-outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  float: left;
+}
+
+.info-outer {
+  width: 500px;
+  height: 640px;
+  float: left;
+  padding: 10px;
+
+  overflow-y: scroll;
+}
+
+.photo-holder {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 640px;
+  height: 640px;
+}
+
+.post-title {
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+.post-date {
+  font-size: 10pt;
+  font-style: italic;
+  display: block;
+  padding-bottom: 10px;
+}
+
+.post-text {
+  font-size: 14pt;
+  text-align:justify; 
+  text-justify:inter-word;
+  display: block;
+}
+
+.post-info {
+  margin-bottom: 15px;
+}
+
+.comment-avatar {
+  float: left;
+}
+
+.comment-text {
+  float: left;
+  margin-left: 20px;
+  width: 380px;
+  clear: right;
+}
+
+.comment-box {
+  width: 100%;
+  clear: both;
+  display: table;
+}
+
+.comments-box {
+  margin-bottom: 10px;
+  display: table;
+}
+
+.comment-date {
+  padding-left: 52px;
+  font-size: 10pt;
+  font-style: italic;
+  display: block;
+}
+
+.comment-details {
+}
+
+.comment-outer {
+  padding-top: 10px;
+  display: table;
+  width: 100%;
+}
+
+.comment-new-input {
+  size: 80;
+  float: left;
+}
+
+.comment-new-box {
+  padding-top: 7px;
+  padding-left: 10px;
+}
+
+.likes {
+  width: 100%;
+  background-color: #B0E0E6;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.likes a {
+  font-size: 16pt;
+}
+
+.link:hover {
+  cursor: pointer;
+}

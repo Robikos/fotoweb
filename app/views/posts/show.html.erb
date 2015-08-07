@@ -1,0 +1,48 @@
+<%= render "user" %>
+
+<div>
+  <div>
+    <%= image_tag @post.picture.url %>
+  </div>
+  <br>
+  <div>
+    <b><%= @post.title %></b><br>
+    <%= @post.created_at %><br>
+    <%= @post.text %>
+  </div>
+  <br>
+  <div>
+    <% @comments.each do |comment| %>
+      <%= comment.created_at %><br>
+      <div><%= image_tag comment.author.avatar.url, size: "50x50" %></div>
+      <b><%= comment.author.username %></b>: <%= comment.text %><br>
+      <%= link_to "Edytuj", edit_user_post_comment_path(comment.author.username, comment.post_id, comment.id) %>
+      <%= link_to "Usuń", user_post_comment_path(comment.author.username, comment.post_id, comment.id), method: :delete %>
+      <hr style="width: 50%">
+    <% end %>
+  </div>
+  <br>
+
+  <div class="likes">
+    <div>
+      <%= @likers %>
+    </div>
+    <br>
+    <div>
+      <% if @my_like_id > 0 %>
+        <b><%= link_to "Nie lubię tego!", user_post_like_path(current_user.username, @post.id, @my_like_id), method: :delete %></b>
+      <% else %>
+        <%= link_to "Lubię to!", user_post_likes_path(current_user.username, @post.id), method: :post %>
+      <% end %> 
+    </div>
+  </div>
+
+  <div>
+    <%= form_for [current_user, @post, @new_comment] do |f| %>
+      <div><%= image_tag current_user.avatar.url, size: "50x50" %></div>
+      <div><%= f.text_field :text, placeholder: "Napisz komentarz!" %></div>
+      <br>
+      <div><%= f.submit "Dodaj komentarz!" %></div>
+    <% end %>
+  </div>
+</div>
